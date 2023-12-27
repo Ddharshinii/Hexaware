@@ -1,0 +1,41 @@
+package mainmod;
+import java.sql.Connection;
+import java.util.Scanner;
+
+
+import dao.InsuranceServiceImpl;
+import menu.Menu;
+import util.DBConnection;
+import util.DBPropertyUtil;
+
+public class MainModule {
+    public static void main(String[] args) {	
+//    	System.out.println("Hello");
+    	
+    	System.out.println("Enter Properties file name :");
+    	Scanner sc=new Scanner(System.in);
+    	String file=sc.nextLine();
+//    	String conStr=null;
+    	
+    		String conStr=DBPropertyUtil.getPropertyString(file);
+    		if(conStr==null)
+    		{
+    			System.exit(0);
+    		}
+    		Connection conn=DBConnection.getConnection(conStr);
+    		
+        	InsuranceServiceImpl.establishConn(conn);
+        	
+        	Menu.menu();
+    	
+    	
+
+    	
+       
+    }
+
+//	private static Exception FileNotFoundException(String message) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+}
