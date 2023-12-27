@@ -1,0 +1,6 @@
+hostname=localhost
+dbname=entity
+username=root
+password=dhana
+port=3306
+Driver=com.mysql.cj.jdbc.Driver
